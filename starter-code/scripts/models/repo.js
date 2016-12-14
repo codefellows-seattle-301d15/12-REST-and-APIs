@@ -2,11 +2,23 @@
   var repos = {};
 
   repos.allRepos = [];
-// TODO: create a githubToken.js file that we can use to generate our headers
+// TODONE: create a githubToken.js file that we can use to generate our headers
          // properly.
   repos.requestRepos = function(callback) {
-    /* TODO: How would you like to fetch your repos? Someone say AJAX?!
+    /* TODONE: How would you like to fetch your repos? Someone say AJAX?!
       Do not forget to call the callback! */
+    $.ajax({
+      url: 'https://api.github.com/users/irvinemd55',
+      type: 'GET',
+      headers: {'Authorization': 'token ' + irvineToken},
+      success: function(data,message,xhr){
+        reposallRepos = data;
+        // console.log(data);
+        // console.log(message);
+        // console.log(xhr);
+        callback();
+      }
+    });
   };
 
   repos.withTheAttribute = function(myAttr) {
