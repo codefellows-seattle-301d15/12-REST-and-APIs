@@ -8,12 +8,13 @@
     /* TODONE: How would you like to fetch your repos? Someone say AJAX?!
       Do not forget to call the callback! */
     $.ajax({
-      url: 'https://api.github.com/users/irvinemd55',
+      url: 'https://api.github.com/users/mikeybkats/repos' + '?per_page=4' + '&sort_updated',
       type: 'GET',
       headers: {'Authorization': 'token ' + irvineToken},
       success: function(data,message,xhr){
-        reposallRepos = data;
-        // console.log(data);
+        console.log(data);
+        // repos.allRepos.push(data);
+        repos.allRepos = data;
         // console.log(message);
         // console.log(xhr);
         callback();
