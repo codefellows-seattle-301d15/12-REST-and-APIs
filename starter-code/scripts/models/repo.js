@@ -2,12 +2,35 @@
   var repos = {};
 
   repos.allRepos = [];
-// TODO: create a githubToken.js file that we can use to generate our headers
-         // properly.
   repos.requestRepos = function(callback) {
+// TODONE: create a githubToken.js file that we can use to generate our headers
+         // properly.
+    $.ajax({
+      url: '/github/aer03280/repositories/',
+      type: 'GET',
+      headers:{'Authorization': 'token ' + token},
+
+    });
+
+    function(data) {
+      repos.allRepos = data;
+    }
+
+  };
+
+
+
+        //  .then(function(data) {
+        //    repos.all = data
+        //  }
+
+        //  function (err) {
+        //    .then(callback);
+        //  };
+
+
     /* TODO: How would you like to fetch your repos? Someone say AJAX?!
       Do not forget to call the callback! */
-  };
 
   repos.withTheAttribute = function(myAttr) {
     /* NOTE: This Model method filters the full repos collection based
